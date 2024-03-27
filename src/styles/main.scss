@@ -4,6 +4,11 @@
     margin: 0;
 }
 
-body {
+#root {
   min-height: 100vh;
+  position: relative;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
 }
