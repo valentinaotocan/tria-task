@@ -1,0 +1,24 @@
+.underline {
+  position: relative;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    left: 0;
+    height: 5px;
+    border-radius: 5px;
+    background: linear-gradient(0deg, $darker-blue 0%, $lighter-blue 100%);
+    transition: all 0.3s ease;
+  }
+  &:hover::before {
+    z-index: -1;
+    height: 12px;
+  }
+}
