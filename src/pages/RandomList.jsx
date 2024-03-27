@@ -1,6 +1,10 @@
+import BackHome from "../components/BackHome"
+
 function RandomList() {
   return (
-    <div>RandomList</div>
+    <div className="random-list">
+      <BackHome />
+    </div>
   )
 }
 export default RandomList

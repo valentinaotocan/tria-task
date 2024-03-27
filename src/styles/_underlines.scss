@@ -9,16 +9,16 @@
   &::before {
     content: "";
     position: absolute;
+    z-index: -1;
     bottom: -5px;
     width: 100%;
     left: 0;
     height: 5px;
     border-radius: 5px;
     background: linear-gradient(0deg, $darker-blue 0%, $lighter-blue 100%);
-    transition: all 0.3s ease;
+    transition: height 0.3s ease;
   }
   &:hover::before {
-    z-index: -1;
     height: 12px;
   }
 }
