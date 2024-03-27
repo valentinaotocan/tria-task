@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BackHome from "../components/BackHome";
+import Error from "../components/Error";
 
 function RandomList() {
   const [randomNumbs, setRandomNumbs] = useState([]);
@@ -30,10 +31,14 @@ function RandomList() {
     <div className="random-list">
       <BackHome />
       <div className="random-list__main">
-        <button onClick={handleFetch} className="btn btn--bigger random-list__main__btn">
+        <button
+          onClick={handleFetch}
+          className="btn btn--bigger random-list__main__btn mb-md"
+        >
           Roll
         </button>
         <div className="random-list__main__list">
+          {error && <Error />}
           {randomNumbs.map((number, index) => (
             <p key={index}>{number}</p>
           ))}

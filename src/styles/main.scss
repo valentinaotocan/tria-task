@@ -1,4 +1,6 @@
 @import "./colors";
+@import './functions';
+@import './spacing';
 @import "./pages/Home";
 @import './pages/RandomList';
 @import './components/BackHome';
@@ -24,5 +26,6 @@ body {
 a {
   text-decoration: none;
 }
+
 
 
