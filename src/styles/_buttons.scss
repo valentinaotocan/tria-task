@@ -1,0 +1,31 @@
+.btn {
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: 20px;
+  border: none;
+  background: $lighter-blue;
+  background: $linear-gradient;
+  &--bigger {
+    width: 160px;
+    height: 50px;
+  }
+  &--normal {
+    width: 140px;
+    height: 50px;
+  }
+  &--small {
+    width: 140px;
+    height: 50px;
+  }
+  &:hover {
+    background: $darker-blue;
+    background: linear-gradient(0deg, $darker-blue 0%, $darker-blue 100%);
+    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.75);
+  }
+}

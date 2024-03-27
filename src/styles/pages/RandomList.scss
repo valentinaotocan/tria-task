@@ -1,3 +1,17 @@
 .random-list {
-  padding: 24px;
+  padding: 100px 24px;
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px 0;
+    &__btn {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    &__list {
+
+    }
+  }
 }
