@@ -15,6 +15,10 @@
     width: toRem(180px);
     height: toRem(50px);
   }
+  &--smaller {
+    width: toRem(45px);
+    height: toRem(25px);
+  }
   &:hover {
     background: $darker-blue;
     background: linear-gradient(0deg, $darker-blue 0%, $darker-blue 100%);

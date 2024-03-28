@@ -1,6 +1,9 @@
 import { useState } from "react";
 import BackHome from "../components/BackHome";
 import Error from "../components/Error";
+import { TbExposureMinus1 } from "react-icons/tb";
+import { PiEraserFill } from "react-icons/pi";
+
 
 function RandomList() {
   const [randomNums, setRandomNums] = useState([]);
@@ -32,6 +35,29 @@ function RandomList() {
     }
   };
 
+const handleDecrease = (number) => {
+    setAppearanceNumbs((prevAppearance) => {
+      const updatedAppearance = { ...prevAppearance };
+      const updatedCount = (prevAppearance[number] || 0) - 1;
+      if (updatedCount <= 0) {
+        delete updatedAppearance[number];
+        setRandomNums((prevNums) => prevNums.filter((num) => num !== number));
+      } else {
+        updatedAppearance[number] = updatedCount;
+      }
+      return updatedAppearance;
+    });
+  };
+
+ const handleRemove = (number) => {
+    setAppearanceNumbs((prevAppearance) => {
+      const newAppearance = { ...prevAppearance };
+      delete newAppearance[number];
+      return newAppearance;
+    });
+    setRandomNums((prevNums) => prevNums.filter((num) => num !== number));
+  };
+
   return (
     <div className="random-list">
       <BackHome />
@@ -43,14 +69,29 @@ function RandomList() {
           Roll
         </button>
         <div className="random-list__main__list flex-column-center pt-md">
-          {error && <Error />}
-          {randomNums.map((number, index) => (
-            <p key={index} className={number === lastNumb ? "last-num" : ""}>
-              {appearanceNumbs[number] === 1
-                ? number
-                : `${number} / ${appearanceNumbs[number]}`}
-            </p>
+           {error && <Error />}
+           {randomNums.map((number, index) => (
+            <div key={index} className="random-list__main__list__row">
+              <p className={`random-list__main__list__paragraph ${ number === lastNumb ? "last-num" : ""}`}>
+                {appearanceNumbs[number] === 1
+                  ? number
+                  : `${number} / ${appearanceNumbs[number]}`}
+              </p>
+              <button
+                onClick={() => handleDecrease(number)}
+                className="btn btn--smaller mr-xxs"
+              >
+                <TbExposureMinus1 size={16} />
+              </button>
+              <button
+                onClick={() => handleRemove(number)}
+                className="btn btn--smaller"
+              >
+                <PiEraserFill size={16} />
+              </button>
+            </div>
           ))}
+
         </div>
       </div>
     </div>
