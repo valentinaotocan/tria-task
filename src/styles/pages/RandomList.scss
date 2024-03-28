@@ -2,8 +2,8 @@
   padding: toRem(100px) toRem(24px);
   &__main {
     line-height: 1.4;
-    margin: toRem(70px) 0 toRem(50px) 0;
-    &__btn {
+    margin: toRem(70px) 0;
+    &__btn-roll {
       text-transform: uppercase;
       font-size: toRem(24px);
     }
@@ -23,21 +23,23 @@
         width: toRem(70px);
       }
     }
-  }
-  &__stats {
-    max-width: toRem(300px);
-    margin: 0 auto;
-    line-height: 1.6;
-    background: $linear-gradient;
-    border-radius: 20px;
-    padding: 3px;
-    margin-bottom: toRem(100px);
-    &__wrap {
-      border-radius: 50px;
-      background: white;
-      padding: toRem(26px);
-      h3 {
+    &__btn-reset {
+      margin: 40px 0;
+    }
+    &__stats {
+      width: 100%;
+      max-width: toRem(350px);
+      line-height: 1.6;
+      background: $linear-gradient;
+      border-radius: 20px;
+      padding: 3px;
+      &__wrap {
+        border-radius: 50px;
+        background: white;
+        padding: toRem(26px);
+       h2 {
         text-align: center;
+       }
       }
     }
   }
@@ -47,10 +49,7 @@
   }
   @media (max-width: toRem(768px)) {
     &__main {
-      margin-top: toRem(50px);
-    }
-    &__stats {
-      margin-bottom: toRem(50px);
+      margin: toRem(50px) 0;
     }
   }
   @media (max-width: toRem(425px)) {

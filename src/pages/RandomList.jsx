@@ -3,6 +3,7 @@ import BackHome from "../components/BackHome";
 import Error from "../components/Error";
 import { TbExposureMinus1 } from "react-icons/tb";
 import { PiEraserFill } from "react-icons/pi";
+import { IoCloseOutline } from "react-icons/io5";
 
 function RandomList() {
   const [randomNums, setRandomNums] = useState([]);
@@ -57,6 +58,12 @@ function RandomList() {
     setRandomNums((prevNums) => prevNums.filter((num) => num !== number));
   };
 
+  const handleResetAll = () => {
+    setRandomNums([]);
+    setAppearanceNumbs({});
+    setLastNumb(null);
+  };
+
   const minNumber = randomNums.length > 0 ? Math.min(...randomNums) : 0;
   const maxNumber = randomNums.length > 0 ? Math.max(...randomNums) : 0;
 
@@ -66,7 +73,7 @@ function RandomList() {
       <div className="random-list__main flex-column-center">
         <button
           onClick={handleFetch}
-          className="random-list__main__btn btn btn--bigger"
+          className="random-list__main__btn-roll btn btn--bigger"
         >
           Roll
         </button>
@@ -98,17 +105,33 @@ function RandomList() {
             </div>
           ))}
         </div>
-      </div>
-      <div className="random-list__stats">
-        <div className="random-list__stats__wrap">
-          <h3>Statistics</h3>
-          <p>Total numbers: {randomNums.length}</p>
-          <p>
-            Total draws: {Object.values(appearanceNumbs).reduce((acc, currentValue) => acc + currentValue, 0)}
-          </p>
-          <p>Sum of numbers: {randomNums.reduce((acc, currentValue) => acc + currentValue, 0)}</p>
-          <p>Min number: {minNumber}</p>
-          <p>Max number: {maxNumber}</p>
+        <button
+          onClick={handleResetAll}
+          className="random-list__main__btn-reset btn btn--normal"
+        >
+          Reset All{" "}
+          <span className="pl-xs">
+            <IoCloseOutline size={22}/>
+          </span>
+        </button>
+        <div className="random-list__main__stats">
+          <div className="random-list__main__stats__wrap">
+            <h3>Statistics</h3>
+            <p>Total numbers: {randomNums.length}</p>
+            <p>
+              Total draws:{" "}
+              {Object.values(appearanceNumbs).reduce(
+                (acc, currentValue) => acc + currentValue,
+                0
+              )}
+            </p>
+            <p>
+              Sum of numbers:{" "}
+              {randomNums.reduce((acc, currentValue) => acc + currentValue, 0)}
+            </p>
+            <p>Min number: {minNumber}</p>
+            <p>Max number: {maxNumber}</p>
+          </div>
         </div>
       </div>
     </div>
