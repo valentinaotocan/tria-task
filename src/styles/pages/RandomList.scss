@@ -1,23 +1,27 @@
 .random-list {
-  padding: 100px 24px;
+  padding: toRem(100px) toRem(24px);
   &__main {
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 1.4;
-    margin: 70px 0;
+    margin: toRem(70px) 0;
     &__btn {
       text-transform: uppercase;
-      font-size: 1.4rem;
+      font-size: toRem(24px);
     }
     &__list {
+      .last-num {
+        background: linear-gradient(0deg, $lighter-blue 0%, $darker-blue 80%);
+        font-weight: 700;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
     }
   }
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-
-.flex-clmn-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-

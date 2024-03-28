@@ -1,30 +1,27 @@
 import { useState } from "react";
 import BackHome from "../components/BackHome";
 import Error from "../components/Error";
-import Loading from "../components/Loading";
 
 function RandomList() {
-  const [randomNumbs, setRandomNumbs] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [randomNums, setRandomNums] = useState([]);
   const [error, setError] = useState(false);
 
   const handleFetch = async () => {
-    setLoading(true);
     try {
       const response = await fetch(
         "https://www.random.org/integers/?num=1&min=1&max=20&col=1&base=10&format=plain&rnd=new"
       );
       if (response.ok) {
         const data = await response.json();
-        setRandomNumbs((prevNumbers) => [...prevNumbers, data]);
+         const prevNums = [...randomNums, data];
+         const sortedNums = prevNums.sort((a, b) => a - b);
+         setRandomNums(sortedNums);
         setError(false);
       } else {
         setError(true);
       }
     } catch (error) {
       setError(true);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -40,9 +37,13 @@ function RandomList() {
         </button>
         <div className="random-list__main__list flex-clmn-center pt-md">
           {error && <Error />}
-          {loading && <Loading />}
-          {randomNumbs.map((number, index) => (
-            <p key={index}>{number}</p>
+          {randomNums.map((number, index) => (
+            <p
+              key={index}
+              className={index === randomNums.length - 1 ? "last-num" : ""}
+            >
+              {number}
+            </p>
           ))}
         </div>
       </div>
