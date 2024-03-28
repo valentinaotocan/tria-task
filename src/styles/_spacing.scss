@@ -21,9 +21,19 @@ $spacer: 0.5rem;
   padding-top: ($spacer * 5);
 }
 
-//padding-bottom 
+// padding-right
+.pr-xs {
+  padding-right: ($spacer * 1);
+}
+
+// padding-bottom 
 .pb-sm {
   padding-bottom: ($spacer * 1.5);
+}
+
+// padding-left
+.pl-xs {
+  padding-left: ($spacer * 1);
 }
 
 

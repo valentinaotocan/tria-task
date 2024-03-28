@@ -1,9 +1,6 @@
 .random-list {
   padding: toRem(100px) toRem(24px);
   &__main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     line-height: 1.4;
     margin: toRem(70px) 0;
     &__btn {
@@ -19,10 +16,5 @@
         background-clip: text;
       }
     }
-  }
-  .flex-column-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }

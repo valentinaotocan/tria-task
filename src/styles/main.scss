@@ -4,7 +4,6 @@
 @import "./pages/Home";
 @import './pages/RandomList';
 @import './components/BackHome';
-@import './components/Loading';
 @import './buttons';
 @import './underlines';
 
@@ -27,6 +26,12 @@ body {
 a {
   text-decoration: none;
 }
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
 
 

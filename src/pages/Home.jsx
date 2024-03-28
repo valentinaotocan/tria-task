@@ -6,8 +6,8 @@ function Home() {
     <div className="home">
       <Link to="/random-list" className="underline">
         Random Number List{" "}
-        <span className="right-arrow">
-          <FaArrowRight />
+        <span className="pl-xs">
+          <FaArrowRight  size={16}/>
         </span>
       </Link>
     </div>

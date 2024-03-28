@@ -28,14 +28,14 @@ function RandomList() {
   return (
     <div className="random-list">
       <BackHome />
-      <div className="random-list__main">
+      <div className="random-list__main flex-column-center">
         <button
           onClick={handleFetch}
           className="btn btn--bigger random-list__main__btn"
         >
           Roll
         </button>
-        <div className="random-list__main__list flex-clmn-center pt-md">
+        <div className="random-list__main__list flex-column-center pt-md">
           {error && <Error />}
           {randomNums.map((number, index) => (
             <p

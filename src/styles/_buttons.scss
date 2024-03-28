@@ -12,16 +12,8 @@
   background: $lighter-blue;
   background: $linear-gradient;
   &--bigger {
-    width: 160px;
-    height: 50px;
-  }
-  &--normal {
-    width: 140px;
-    height: 50px;
-  }
-  &--small {
-    width: 140px;
-    height: 50px;
+    width: toRem(180px);
+    height: toRem(50px);
   }
   &:hover {
     background: $darker-blue;

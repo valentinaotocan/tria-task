@@ -1,8 +1,4 @@
 .back-home {
   display: flex;
-  margin-left: 60px;
-  .underline .left-arrow {
-    font-size: 1rem;
-    padding-right: 8px;
-  }
+  margin-left: toRem(60px);
 }
