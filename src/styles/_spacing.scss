@@ -17,137 +17,17 @@ $spacer: 0.5rem;
 .pt-lg {
   padding-top: ($spacer * 3);
 }
-
-// padding right
-.pr-xxs {
-  padding-right: ($spacer * 0.5);
-}
-.pr-xs {
-  padding-right: ($spacer * 1);
-}
-.pr-sm {
-  padding-right: ($spacer * 1.5);
-}
-.pr-md {
-  padding-right: ($spacer * 2);
+.pt-2xl {
+  padding-top: ($spacer * 5);
 }
 
-// padding bottom
-.pb-xxs {
-  padding-bottom: ($spacer * 0.5);
-}
-.pb-xs {
-  padding-bottom: ($spacer * 1);
-}
+//padding-bottom 
 .pb-sm {
   padding-bottom: ($spacer * 1.5);
 }
-.pb-md {
-  padding-bottom: ($spacer * 2);
-}
 
-// padding left
-.pl-xxs {
-  padding-left: ($spacer * 0.5);
-}
-.pl-xs {
-  padding-left: ($spacer * 1);
-}
-.pl-sm {
-  padding-left: ($spacer * 1.5);
-}
-.pl-md {
-  padding-left: ($spacer * 2);
-}
-.pl-lg {
-  padding-left: ($spacer * 3);
-}
 
-// padding left-right
-.plr-xxs {
-  padding-left: ($spacer * 0.5);
-  padding-right: ($spacer * 0.5);
-}
-.plr-xs {
-  padding-left: ($spacer * 1);
-  padding-right: ($spacer * 1);
-}
-.plr-sm {
-  padding-left: ($spacer * 1.5);
-  padding-right: ($spacer * 1.5);
-}
-.plr-md {
-  padding-left: ($spacer * 2);
-  padding-right: ($spacer * 2);
-}
-.plr-lg {
-  padding-left: ($spacer * 3);
-  padding-right: ($spacer * 3);
-}
-.plr-xl {
-  padding-left: ($spacer * 4);
-  padding-right: ($spacer * 4);
-}
-.plr-2xl {
-  padding-left: ($spacer * 5);
-  padding-right: ($spacer * 5);
-}
-.plr-3xl {
-  padding-left: ($spacer * 6);
-  padding-right: ($spacer * 6);
-}
 
-// padding top-bottom
-.ptb-xxs {
-  padding-top: ($spacer * 0.5);
-  padding-bottom: ($spacer * 0.5);
-}
 
-// Margin bottom
-.mb-xxs {
-  margin-bottom: ($spacer * 0.5);
-}
-.mb-xs {
-  margin-bottom: ($spacer * 1);
-}
-.mb-sm {
-  margin-bottom: ($spacer * 1.5);
-}
-.mb-md {
-  margin-bottom: ($spacer * 2);
-}
-.mb-lg {
-  margin-bottom: ($spacer * 3);
-}
-.mb-xl {
-  margin-bottom: ($spacer * 4);
-}
-.mb-2xl {
-  margin-bottom: ($spacer * 5);
-}
-.mb-3xl {
-  margin-bottom: ($spacer * 6);
-}
-.mb-4xl {
-  margin-bottom: ($spacer * 7);
-}
-.mb-5xl {
-  margin-bottom: ($spacer * 8);
-}
-.mb-6xl {
-  margin-bottom: ($spacer * 9);
-}
 
-// Margin left
-.ml-xxs {
-  margin-left: ($spacer * 0.5);
-}
-.ml-xs {
-  margin-left: ($spacer * 1);
-}
-.ml-sm {
-  margin-left: ($spacer * 1.5);
-}
-.ml-md {
-  margin-left: ($spacer * 2);
-}
+
