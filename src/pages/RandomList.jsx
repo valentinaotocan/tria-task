@@ -4,7 +4,6 @@ import Error from "../components/Error";
 import { TbExposureMinus1 } from "react-icons/tb";
 import { PiEraserFill } from "react-icons/pi";
 
-
 function RandomList() {
   const [randomNums, setRandomNums] = useState([]);
   const [error, setError] = useState(false);
@@ -35,7 +34,7 @@ function RandomList() {
     }
   };
 
-const handleDecrease = (number) => {
+  const handleDecrease = (number) => {
     setAppearanceNumbs((prevAppearance) => {
       const updatedAppearance = { ...prevAppearance };
       const updatedCount = (prevAppearance[number] || 0) - 1;
@@ -49,7 +48,7 @@ const handleDecrease = (number) => {
     });
   };
 
- const handleRemove = (number) => {
+  const handleRemove = (number) => {
     setAppearanceNumbs((prevAppearance) => {
       const newAppearance = { ...prevAppearance };
       delete newAppearance[number];
@@ -57,6 +56,9 @@ const handleDecrease = (number) => {
     });
     setRandomNums((prevNums) => prevNums.filter((num) => num !== number));
   };
+
+  const minNumber = randomNums.length > 0 ? Math.min(...randomNums) : 0;
+  const maxNumber = randomNums.length > 0 ? Math.max(...randomNums) : 0;
 
   return (
     <div className="random-list">
@@ -69,10 +71,14 @@ const handleDecrease = (number) => {
           Roll
         </button>
         <div className="random-list__main__list flex-column-center pt-md">
-           {error && <Error />}
-           {randomNums.map((number, index) => (
+          {error && <Error />}
+          {randomNums.map((number, index) => (
             <div key={index} className="random-list__main__list__row">
-              <p className={`random-list__main__list__paragraph ${ number === lastNumb ? "last-num" : ""}`}>
+              <p
+                className={`random-list__main__list__paragraph ${
+                  number === lastNumb ? "last-num" : ""
+                }`}
+              >
                 {appearanceNumbs[number] === 1
                   ? number
                   : `${number} / ${appearanceNumbs[number]}`}
@@ -91,7 +97,18 @@ const handleDecrease = (number) => {
               </button>
             </div>
           ))}
-
+        </div>
+      </div>
+      <div className="random-list__stats">
+        <div className="random-list__stats__wrap">
+          <h3>Statistics</h3>
+          <p>Total numbers: {randomNums.length}</p>
+          <p>
+            Total draws: {Object.values(appearanceNumbs).reduce((acc, currentValue) => acc + currentValue, 0)}
+          </p>
+          <p>Sum of numbers: {randomNums.reduce((acc, currentValue) => acc + currentValue, 0)}</p>
+          <p>Min number: {minNumber}</p>
+          <p>Max number: {maxNumber}</p>
         </div>
       </div>
     </div>

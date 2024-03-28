@@ -2,7 +2,7 @@
   padding: toRem(100px) toRem(24px);
   &__main {
     line-height: 1.4;
-    margin: toRem(70px) 0;
+    margin: toRem(70px) 0 toRem(50px) 0;
     &__btn {
       text-transform: uppercase;
       font-size: toRem(24px);
@@ -20,21 +20,41 @@
         display: flex;
       }
       &__paragraph {
-        width: toRem(60px);
+        width: toRem(70px);
       }
     }
   }
-  @media(max-width: toRem(1200px)) {
-    padding-top: toRem(60px);
-    padding-bottom: toRem(60px); 
-  }
-  @media(max-width: toRem(768px)) {
-    &__main {
-      margin: toRem(50px);
+  &__stats {
+    max-width: toRem(300px);
+    margin: 0 auto;
+    line-height: 1.6;
+    background: $linear-gradient;
+    border-radius: 20px;
+    padding: 3px;
+    margin-bottom: toRem(100px);
+    &__wrap {
+      border-radius: 50px;
+      background: white;
+      padding: toRem(26px);
+      h3 {
+        text-align: center;
+      }
     }
   }
-   @media(max-width: toRem(425px)) {
+  @media (max-width: toRem(1200px)) {
+    padding-top: toRem(60px);
+    padding-bottom: toRem(60px);
+  }
+  @media (max-width: toRem(768px)) {
+    &__main {
+      margin-top: toRem(50px);
+    }
+    &__stats {
+      margin-bottom: toRem(50px);
+    }
+  }
+  @media (max-width: toRem(425px)) {
     padding-top: toRem(40px);
-    padding-bottom: toRem(40px); 
+    padding-bottom: toRem(40px);
   }
 }
