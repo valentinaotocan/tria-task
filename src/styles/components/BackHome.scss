@@ -1,4 +1,7 @@
 .back-home {
   display: flex;
   margin-left: toRem(60px);
+  @media(max-width: toRem(1200px)) {
+    margin-left: 0;
+  }
 }

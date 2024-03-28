@@ -17,4 +17,17 @@
       }
     }
   }
+  @media(max-width: toRem(1200px)) {
+    padding-top: toRem(60px);
+    padding-bottom: toRem(60px); 
+  }
+  @media(max-width: toRem(768px)) {
+    &__main {
+      margin: toRem(50px);
+    }
+  }
+   @media(max-width: toRem(425px)) {
+    padding-top: toRem(40px);
+    padding-bottom: toRem(40px); 
+  }
 }

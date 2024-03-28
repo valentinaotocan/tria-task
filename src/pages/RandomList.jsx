@@ -5,6 +5,8 @@ import Error from "../components/Error";
 function RandomList() {
   const [randomNums, setRandomNums] = useState([]);
   const [error, setError] = useState(false);
+  const [lastNumb, setLastNumb] = useState(null);
+  const [appearanceNumbs, setAppearanceNumbs] = useState({});
 
   const handleFetch = async () => {
     try {
@@ -13,9 +15,14 @@ function RandomList() {
       );
       if (response.ok) {
         const data = await response.json();
-         const prevNums = [...randomNums, data];
-         const sortedNums = prevNums.sort((a, b) => a - b);
-         setRandomNums(sortedNums);
+        const prevNums = [...new Set([...randomNums, data])];
+        const sortedNums = prevNums.sort((a, b) => a - b);
+        setRandomNums(sortedNums);
+        setAppearanceNumbs((prevAppearance) => ({
+          ...prevAppearance,
+          [data]: (prevAppearance[data] || 0) + 1,
+        }));
+        setLastNumb(data);
         setError(false);
       } else {
         setError(true);
@@ -31,18 +38,17 @@ function RandomList() {
       <div className="random-list__main flex-column-center">
         <button
           onClick={handleFetch}
-          className="btn btn--bigger random-list__main__btn"
+          className="random-list__main__btn btn btn--bigger"
         >
           Roll
         </button>
         <div className="random-list__main__list flex-column-center pt-md">
           {error && <Error />}
           {randomNums.map((number, index) => (
-            <p
-              key={index}
-              className={index === randomNums.length - 1 ? "last-num" : ""}
-            >
-              {number}
+            <p key={index} className={number === lastNumb ? "last-num" : ""}>
+              {appearanceNumbs[number] === 1
+                ? number
+                : `${number} / ${appearanceNumbs[number]}`}
             </p>
           ))}
         </div>
