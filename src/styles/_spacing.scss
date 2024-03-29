@@ -17,8 +17,8 @@ $spacer: 0.5rem;
 .pt-lg {
   padding-top: ($spacer * 3);
 }
-.pt-2xl {
-  padding-top: ($spacer * 5);
+.pt-xl {
+  padding-top: ($spacer * 4);
 }
 
 // padding-right
@@ -39,6 +39,12 @@ $spacer: 0.5rem;
 // margin-right
 .mr-xxs {
   margin-right: ($spacer * 0.5);
+}
+
+// margin-top-bottom
+.mtb-2xl {
+  margin-top: ($spacer * 5);
+  margin-bottom: ($spacer * 5);
 }
 
 

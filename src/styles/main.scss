@@ -1,11 +1,17 @@
 @import "./colors";
 @import './functions';
 @import './spacing';
-@import "./pages/Home";
-@import './pages/RandomList';
-@import './components/BackHome';
 @import './buttons';
 @import './underlines';
+
+@import "./pages/Home";
+@import './pages/RandomList';
+
+@import './components/List';
+@import './components/BackHome';
+@import './components/ButtonRoll';
+@import './components/Statistics';
+
 
 * {
   box-sizing: border-box;

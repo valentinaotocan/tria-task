@@ -1,15 +1,15 @@
 import { useState } from "react";
+import List from "../components/List";
 import BackHome from "../components/BackHome";
-import Error from "../components/Error";
-import { TbExposureMinus1 } from "react-icons/tb";
-import { PiEraserFill } from "react-icons/pi";
-import { IoCloseOutline } from "react-icons/io5";
+import ButtonRoll from "../components/ButtonRoll";
+import Statistics from "../components/Statistics";
+import ButtonResetAll from "../components/ButtonResetAll";
 
 function RandomList() {
   const [randomNums, setRandomNums] = useState([]);
   const [error, setError] = useState(false);
   const [lastNumb, setLastNumb] = useState(null);
-  const [appearanceNumbs, setAppearanceNumbs] = useState({});
+  const [appearanceNums, setAppearanceNums] = useState({});
 
   const handleFetch = async () => {
     try {
@@ -21,7 +21,7 @@ function RandomList() {
         const prevNums = [...new Set([...randomNums, data])];
         const sortedNums = prevNums.sort((a, b) => a - b);
         setRandomNums(sortedNums);
-        setAppearanceNumbs((prevAppearance) => ({
+        setAppearanceNums((prevAppearance) => ({
           ...prevAppearance,
           [data]: (prevAppearance[data] || 0) + 1,
         }));
@@ -36,103 +36,49 @@ function RandomList() {
   };
 
   const handleDecrease = (number) => {
-    setAppearanceNumbs((prevAppearance) => {
-      const updatedAppearance = { ...prevAppearance };
-      const updatedCount = (prevAppearance[number] || 0) - 1;
-      if (updatedCount <= 0) {
-        delete updatedAppearance[number];
+    setAppearanceNums((prevAppearance) => {
+      const prevAppearanceCopy = { ...prevAppearance };
+      const decrementByOne = (prevAppearance[number] || 0) - 1;
+      if (decrementByOne <= 0) {
+        delete prevAppearanceCopy[number];
         setRandomNums((prevNums) => prevNums.filter((num) => num !== number));
       } else {
-        updatedAppearance[number] = updatedCount;
+        prevAppearanceCopy[number] = decrementByOne;
       }
-      return updatedAppearance;
+      return prevAppearanceCopy;
     });
   };
 
   const handleRemove = (number) => {
-    setAppearanceNumbs((prevAppearance) => {
-      const newAppearance = { ...prevAppearance };
-      delete newAppearance[number];
-      return newAppearance;
+    setAppearanceNums((prevAppearance) => {
+      const updateAppearance = { ...prevAppearance };
+      delete updateAppearance[number];
+      return updateAppearance;
     });
     setRandomNums((prevNums) => prevNums.filter((num) => num !== number));
   };
 
   const handleResetAll = () => {
     setRandomNums([]);
-    setAppearanceNumbs({});
     setLastNumb(null);
+    setAppearanceNums({});
   };
-
-  const minNumber = randomNums.length > 0 ? Math.min(...randomNums) : 0;
-  const maxNumber = randomNums.length > 0 ? Math.max(...randomNums) : 0;
 
   return (
     <div className="random-list">
       <BackHome />
       <div className="random-list__main flex-column-center">
-        <button
-          onClick={handleFetch}
-          className="random-list__main__btn-roll btn btn--bigger"
-        >
-          Roll
-        </button>
-        <div className="random-list__main__list flex-column-center pt-md">
-          {error && <Error />}
-          {randomNums.map((number, index) => (
-            <div key={index} className="random-list__main__list__row">
-              <p
-                className={`random-list__main__list__paragraph ${
-                  number === lastNumb ? "last-num" : ""
-                }`}
-              >
-                {appearanceNumbs[number] === 1
-                  ? number
-                  : `${number} / ${appearanceNumbs[number]}`}
-              </p>
-              <button
-                onClick={() => handleDecrease(number)}
-                className="btn btn--smaller mr-xxs"
-              >
-                <TbExposureMinus1 size={16} />
-              </button>
-              <button
-                onClick={() => handleRemove(number)}
-                className="btn btn--smaller"
-              >
-                <PiEraserFill size={16} />
-              </button>
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={handleResetAll}
-          className="random-list__main__btn-reset btn btn--normal"
-        >
-          Reset All{" "}
-          <span className="pl-xs">
-            <IoCloseOutline size={22}/>
-          </span>
-        </button>
-        <div className="random-list__main__stats">
-          <div className="random-list__main__stats__wrap">
-            <h3>Statistics</h3>
-            <p>Total numbers: {randomNums.length}</p>
-            <p>
-              Total draws:{" "}
-              {Object.values(appearanceNumbs).reduce(
-                (acc, currentValue) => acc + currentValue,
-                0
-              )}
-            </p>
-            <p>
-              Sum of numbers:{" "}
-              {randomNums.reduce((acc, currentValue) => acc + currentValue, 0)}
-            </p>
-            <p>Min number: {minNumber}</p>
-            <p>Max number: {maxNumber}</p>
-          </div>
-        </div>
+        <ButtonRoll onClick={handleFetch} />
+        <List
+          error={error}
+          randomNums={randomNums}
+          lastNumb={lastNumb}
+          appearanceNums={appearanceNums}
+          handleDecrease={handleDecrease}
+          handleRemove={handleRemove}
+        />
+        <ButtonResetAll onClick={handleResetAll} />
+        <Statistics randomNums={randomNums} appearanceNums={appearanceNums} />
       </div>
     </div>
   );

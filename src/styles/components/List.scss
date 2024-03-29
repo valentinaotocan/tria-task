@@ -1,0 +1,16 @@
+.list {
+  gap: 8px;
+  .last-num {
+    background: linear-gradient(0deg, $lighter-blue 0%, $darker-blue 80%);
+    font-weight: 700;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  &__row {
+    display: flex;
+    p {
+      width: toRem(70px);
+    }
+  }
+}
