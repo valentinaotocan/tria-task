@@ -4,7 +4,7 @@ import { FaArrowLeft } from "react-icons/fa";
 function BackHome() {
   return (
     <div className="back-home">
-      <Link to="/" className="underline">
+      <Link to="/tria-task/" className="underline">
         <span className="pr-xs">
           <FaArrowLeft size={16}/>
         </span>

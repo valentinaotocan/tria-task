@@ -5,12 +5,14 @@ import Waves from "./components/Waves";
 function App() {
   return (
     <>
-      <Waves rotate={180}/>
+      <Waves rotate={180} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/random-list" element={<RandomList />} />
+        <Route path="/tria-task/">
+          <Route index element={<Home />} />
+          <Route path="random-list" element={<RandomList />} />
+        </Route>
       </Routes>
-      <Waves rotate={0}/>
+      <Waves rotate={0} />
     </>
   );
 }
