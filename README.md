@@ -15,6 +15,8 @@ This is a web application that rolls numbers from 1 to 20, from the random.org i
 - Statistics - offers insight on the rolled numbers with the following stats: total number of rolled numbers, total number of appearances of all numbers, sum of all numbers and smallest and biggest number.
 - Clear option - a button that clears clears the entire list.
 
+## Demo link
+You can check my project at https://valentinaotocan.github.io/tria-task/.
 ## Instalation and usage
 * git clone https://github.com/valentinaotocan/tria-task
 * cd tria-task
