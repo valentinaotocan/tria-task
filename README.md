@@ -1,6 +1,9 @@
 # Introduction
 This is a web application that rolls numbers from 1 to 20, from the random.org intigers API endpoint.
 
+## Design
+The design of the application was created by me.
+
 ## Technologies
 * Vite - build tool
 * JavaScript - logic creaton
